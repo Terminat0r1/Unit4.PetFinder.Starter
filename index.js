@@ -26,20 +26,22 @@ app.get("/api/v1/pets", (req, res) => {
 // get pet by owner with query string
 app.get("/api/v1/pets/owner", (req, res) => {
   // get the owner from the request
+  const petOwner = pets[owner];
 
   // find the pet in the pets array
   const pet = pets.find((pet) => pet.owner === owner);
-
+  response.send(petOwner);
   // send the pet as a response
 });
 
 // get pet by name
 app.get("/api/v1/pets/:name", (req, res) => {
   // get the name from the request
+  const petName = pets[name];
 
   // find the pet in the pets array
   const pet = pets.find((pet) => pet.name === name);
-
+  response.send(petName);
   // send the pet as a response
 });
 
